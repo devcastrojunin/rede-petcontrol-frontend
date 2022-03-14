@@ -15,6 +15,12 @@ import EditarConsultas from "../pages/consultas/editar/Editar";
 import NovoConsultas from "../pages/consultas/novo/Novo";
 import TodosConsultas from "../pages/consultas/todos/Todos";
 import IdConsultas from "../pages/consultas/editar/id/Id";
+import Login from "../pages/login/Login";
+import Usuarios from "../pages/usuarios/Usuarios";
+import EditarUsuarios from "../pages/usuarios/editar/Editar";
+import NovoUsuarios from "../pages/usuarios/novo/Novo";
+import TodosUsuarios from "../pages/usuarios/todos/Todos";
+import IdUsuarios from "../pages/usuarios/editar/id/Id";
 
 
 export default function Routers() {
@@ -43,6 +49,14 @@ export default function Routers() {
                     </Route>
                     <Route path= "novo" element= {<Novo/>}/>
                     <Route path= "todos" element= {<Todos/>}/>
+                </Route>
+                <Route path= "login" element= {<Login/>}/>
+                <Route path= "usuarios" element= {<Usuarios/>}>
+                    <Route path= "editar" element= {<EditarUsuarios/>}>
+                        <Route path= "id" element= {<IdUsuarios/>}/>
+                    </Route>
+                    <Route path= "novo" element= {<NovoUsuarios/>}/>
+                    <Route path= "todos" element= {<TodosUsuarios/>}/>
                 </Route>
                 <Route path="*" element={
                 <main>
