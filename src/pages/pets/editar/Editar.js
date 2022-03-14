@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
 
-export default function Consultas() {
+export default function Editar() {
     return (
         <div>
-            <h2>Consultas</h2>
-        <Outlet/>
+            <h2>Editar</h2>
+        <Outlet/>    
         </div>
     );
 }
