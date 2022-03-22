@@ -1,16 +1,12 @@
 import { render } from "react-dom";
 import App from "./App";
-import Routers from "./routes/Routes";
-
-
-
+import { ChakraProvider } from '@chakra-ui/react'
 
 const rootElement = document.getElementById("root");
 render(
-  <div>
+  <ChakraProvider>
     <App/>
-    <Routers/>
-  </div>
+  </ChakraProvider>
   ,
   rootElement
 );
