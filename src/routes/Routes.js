@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Home from "../pages/home/Home";
 import Consultas from "../pages/consultas/Consultas";
 import Pets from "../pages/pets/Pets";
@@ -25,7 +25,6 @@ import IdUsuarios from "../pages/usuarios/editar/id/Id";
 
 export default function Routers() {
     return (
-        <BrowserRouter>
             <Routes>
                 
                 <Route path= "home" element= {<Home/>}/>
@@ -66,6 +65,5 @@ export default function Routers() {
                 />
                 
             </Routes>
-        </BrowserRouter>
     )
 }
