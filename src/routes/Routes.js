@@ -1,8 +1,5 @@
 import { Routes, Route } from "react-router-dom"
 import Home from "../pages/home/Home";
-import Consultas from "../pages/consultas/Consultas";
-import Pets from "../pages/pets/Pets";
-import Clientes from "../pages/clientes/Clientes";
 import Editar from "../pages/clientes/editar/Editar";
 import Novo from "../pages/clientes/novo/Novo";
 import Todos from "../pages/clientes/todos/Todos";
@@ -16,7 +13,6 @@ import NovoConsultas from "../pages/consultas/novo/Novo";
 import TodosConsultas from "../pages/consultas/todos/Todos";
 import IdConsultas from "../pages/consultas/editar/id/Id";
 import Login from "../pages/login/Login";
-import Usuarios from "../pages/usuarios/Usuarios";
 import EditarUsuarios from "../pages/usuarios/editar/Editar";
 import NovoUsuarios from "../pages/usuarios/novo/Novo";
 import TodosUsuarios from "../pages/usuarios/todos/Todos";
@@ -28,38 +24,40 @@ export default function Routers() {
             <Routes>
                 
                 <Route path= "home" element= {<Home/>}/>
-                <Route path= "consultas" element= {<Consultas/>}>
+
+                <Route path= "consultas/todos" element= {<TodosConsultas/>}>
                     <Route path= "editar" element= {<EditarConsultas/>}>
                         <Route path= "id" element= {<IdConsultas/>}/>
                     </Route>
-                    <Route path= "novo" element= {<NovoConsultas/>}/>
-                    <Route path= "todos" element= {<TodosConsultas/>}/>
+                    <Route path= "novo" element= {<NovoConsultas/>}/>                    
                 </Route>
-                <Route path= "pets" element= {<Pets/>}>
+
+                <Route path= "pets/todos" element= {<TodosPets/>}>
                     <Route path= "editar" element= {<EditarPets/>}>
                         <Route path= "id" element= {<IdPets/>}/>
                     </Route>
                     <Route path= "novo" element= {<NovoPets/>}/>
-                    <Route path= "todos" element= {<TodosPets/>}/>
                 </Route>
-                <Route path= "clientes" element= {<Clientes/>}>
+
+                <Route path= "clientes/todos" element= {<Todos/>}>
                     <Route path= "editar" element= {<Editar/>}>
                         <Route path= "id" element= {<Id/>}/>
                     </Route>
                     <Route path= "novo" element= {<Novo/>}/>
-                    <Route path= "todos" element= {<Todos/>}/>
                 </Route>
+                
                 <Route path= "login" element= {<Login/>}/>
-                <Route path= "usuarios" element= {<Usuarios/>}>
+
+                <Route path= "usuarios/todos" element= {<TodosUsuarios/>}>
                     <Route path= "editar" element= {<EditarUsuarios/>}>
                         <Route path= "id" element= {<IdUsuarios/>}/>
                     </Route>
                     <Route path= "novo" element= {<NovoUsuarios/>}/>
-                    <Route path= "todos" element= {<TodosUsuarios/>}/>
                 </Route>
+
                 <Route path="*" element={
                 <main>
-                <p>There's nothing here!</p>
+                    <p>There's nothing here!</p>
                 </main>
                 }
                 />
