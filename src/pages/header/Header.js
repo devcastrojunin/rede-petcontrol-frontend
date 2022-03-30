@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Stack,
-  Heading,
-  Flex,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Stack, Heading, Flex, useDisclosure } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 //import { HamburgerIcon } from "@chakra-ui/icons";
