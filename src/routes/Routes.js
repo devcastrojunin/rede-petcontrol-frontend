@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Home from "../pages/home/Home";
 import Editar from "../pages/clientes/editar/Editar";
 import Novo from "../pages/clientes/novo/Novo";
@@ -21,7 +21,6 @@ import IdUsuarios from "../pages/usuarios/editar/id/Id";
 
 export default function Routers() {
     return (
-        <BrowserRouter>
             <Routes>
                 
                 <Route path= "home" element= {<Home/>}/>
@@ -64,6 +63,5 @@ export default function Routers() {
                 />
                 
             </Routes>
-        </BrowserRouter>
     )
 }
