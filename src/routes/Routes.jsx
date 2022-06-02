@@ -1,18 +1,20 @@
 import { Routes, Route } from "react-router-dom"
-import Home from "../pages/Home";
-import Consultas from "../pages/Consultas";
-import EditarConsulta from "../pages/Consultas/EditarConsulta";
-import NovaConsulta from "../pages/Consultas/NovaConsulta";
-import Pets from "../pages/Pets";
-import EditarPet from "../pages/Pets/EditarPet";
-import NovoPet from "../pages/Pets/NovoPet";
-import Clientes from "../pages/Clientes";
-import EditarCliente from "../pages/Clientes/EditarCliente";
-import NovoCliente from "../pages/Clientes/NovoCliente";
-import Login from "../pages/Login";
-import Usuarios from "../pages/Usuarios";
-import EditarUsuario from "../pages/Usuarios/EditarUsuario";
-import NovoUsuario from "../pages/Usuarios/NovoUsuario";
+import {
+    Home,
+    Consultas,
+    EditarConsulta,
+    NovaConsulta,
+    Pets,
+    EditarPet,
+    NovoPet,
+    Clientes,
+    EditarCliente,
+    NovoCliente,
+    Login,
+    Usuarios,
+    EditarUsuario,
+    NovoUsuario
+} from "../pages";
 
 
 
