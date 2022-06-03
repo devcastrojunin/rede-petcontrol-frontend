@@ -32,8 +32,8 @@ export default function Routers() {
             <Route path="novoPet" element={<NovoPet />} />
 
             <Route path="clientes" element={<Clientes />} />
-            <Route path= "editarCliente" element={<EditarCliente/>}/>
-            <Route path="novoCliente" element={<NovoCliente />} />
+            <Route path= "clientes/editar/:id" element={<EditarCliente/>}/>
+            <Route path="clientes/cadastrar" element={<NovoCliente />} />
 
             <Route path="login" element={<Login />} />
 
