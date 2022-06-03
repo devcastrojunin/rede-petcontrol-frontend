@@ -15,37 +15,42 @@ import {
     EditarUsuario,
     NovoUsuario
 } from "../pages";
-
-
+import TemplateDefault from "../templates/TemplateDefault";
+import TemplateLogin from "../templates/TemplateLogin";
 
 export default function Routers() {
     return (
         <Routes>
-            <Route path="home" element={<Home />} />
 
-            <Route path="consultas" element={<Consultas />} />
-            <Route path= "consulta/editar/:id" element={<EditarConsulta/>}/>
-            <Route path="consulta/cadastrar" element={<NovaConsulta />} />
+            <Route path="/" element={<TemplateLogin />}>
+                <Route path="/login" element={<Login />} />
+            </Route>
 
-            <Route path="pets" element={<Pets />} />
-            <Route path= "pets/editar/:id" element={<EditarPet/>}/>
-            <Route path="pets/cadastrar" element={<NovoPet />} />
+            <Route path="/" element={<TemplateDefault />}>
+                <Route path="home" element={<Home />} />
 
-            <Route path="clientes" element={<Clientes />} />
-            <Route path= "clientes/editar/:id" element={<EditarCliente/>}/>
-            <Route path="clientes/cadastrar" element={<NovoCliente />} />
+                <Route path="consultas" element={<Consultas />} />
+                <Route path="consulta/editar/:id" element={<EditarConsulta />} />
+                <Route path="consulta/cadastrar" element={<NovaConsulta />} />
 
-            <Route path="login" element={<Login />} />
+                <Route path="pets" element={<Pets />} />
+                <Route path="pets/editar/:id" element={<EditarPet />} />
+                <Route path="pets/cadastrar" element={<NovoPet />} />
 
-            <Route path="usuarios" element={<Usuarios />} />
-            <Route path= "usuario/editar/:id" element={<EditarUsuario/>}/>
-            <Route path="usuario/cadastrar" element={<NovoUsuario />} />
+                <Route path="clientes" element={<Clientes />} />
+                <Route path="clientes/editar/:id" element={<EditarCliente />} />
+                <Route path="clientes/cadastrar" element={<NovoCliente />} />
 
-            <Route path="*" element={
-                <main>
-                    <p>Página não existe</p>
-                </main>
-            } />
+                <Route path="usuarios" element={<Usuarios />} />
+                <Route path="usuario/editar/:id" element={<EditarUsuario />} />
+                <Route path="usuario/cadastrar" element={<NovoUsuario />} />
+
+                <Route path="*" element={
+                    <main>
+                        <p>Página não existe</p>
+                    </main>
+                } />
+            </Route>
         </Routes>
     )
 }

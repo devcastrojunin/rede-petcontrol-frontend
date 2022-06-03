@@ -20,7 +20,7 @@ export default function Login() {
             align={'center'}
             justify={'center'}
             bg={useColorModeValue('gray.50', 'gray.800')}>
-            <Stack spacing={8} mx={'auto'} width={500} py={12} px={6}>
+            <Stack spacing={8} mx={'auto'} width={450} py={12} px={6}>
                 <Stack align={'center'}>
                     <Heading fontSize={'4xl'}>Login</Heading>
                 </Stack>
@@ -39,20 +39,15 @@ export default function Login() {
                             <Input type="password" />
                         </FormControl>
                         <Stack spacing={10}>
-                            <Stack
-                                direction={{ base: 'column', sm: 'row' }}
-                                align={'start'}
-                                justify={'space-between'}>
-                                <Checkbox>Remember me</Checkbox>
-                                <Link color={'blue.400'}>Forgot password?</Link>
-                            </Stack>
+            
                             <Button
+                                mt={5}
                                 bg={'blue.400'}
                                 color={'white'}
                                 _hover={{
                                     bg: 'blue.500',
                                 }}>
-                                Sign in
+                                Entrar
                             </Button>
                         </Stack>
                     </Stack>
