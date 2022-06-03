@@ -24,12 +24,12 @@ export default function Routers() {
             <Route path="home" element={<Home />} />
 
             <Route path="consultas" element={<Consultas />} />
-            <Route path= "editarConsulta" element={<EditarConsulta/>}/>
-            <Route path="novoConsulta" element={<NovaConsulta />} />
+            <Route path= "consulta/editar/:id" element={<EditarConsulta/>}/>
+            <Route path="consulta/cadastrar" element={<NovaConsulta />} />
 
             <Route path="pets" element={<Pets />} />
-            <Route path= "editarPet" element={<EditarPet/>}/>
-            <Route path="novoPet" element={<NovoPet />} />
+            <Route path= "pets/editar/:id" element={<EditarPet/>}/>
+            <Route path="pets/cadastrar" element={<NovoPet />} />
 
             <Route path="clientes" element={<Clientes />} />
             <Route path= "clientes/editar/:id" element={<EditarCliente/>}/>
@@ -38,8 +38,8 @@ export default function Routers() {
             <Route path="login" element={<Login />} />
 
             <Route path="usuarios" element={<Usuarios />} />
-            <Route path= "editarUsuario" element={<EditarUsuario/>}/>
-            <Route path="novoUsuario" element={<NovoUsuario />} />
+            <Route path= "usuario/editar/:id" element={<EditarUsuario/>}/>
+            <Route path="usuario/cadastrar" element={<NovoUsuario />} />
 
             <Route path="*" element={
                 <main>
