@@ -6,6 +6,7 @@ export default function Clientes() {
     let tableHead = ["Nome", "Email", "Endereço", "Pets" ];
     
     return (
+        
         <Center>
             <Box w="75%" h="100%">
                 <Box fontWeight="bold" fontSize="30px" mb={61} mt={10} pl={4}>Todos os Clientes</Box>
@@ -13,5 +14,6 @@ export default function Clientes() {
                 <GlobalTable tableHead={tableHead}/>
             </Box>
         </Center>
+        
     );
 }
