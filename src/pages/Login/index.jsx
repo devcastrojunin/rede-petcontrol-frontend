@@ -1,12 +1,12 @@
 import {
     Button,
-    Checkbox,
+    // Checkbox,
     Flex,
     FormControl,
     FormLabel,
     Heading,
     Input,
-    Link,
+    // Link,
     Stack,
     Image,
 } from '@chakra-ui/react';
