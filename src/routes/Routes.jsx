@@ -16,13 +16,13 @@ import {
     NovoUsuario
 } from "../pages";
 import TemplateDefault from "../templates/TemplateDefault";
-import TemplateLogin from "../templates/TemplateLogin";
+import TemplateAuth from "../templates/TemplateAuth";
 
 export default function Routers() {
     return (
         <Routes>
 
-            <Route path="/" element={<TemplateLogin />}>
+            <Route path="/" element={<TemplateAuth/>}>
                 <Route path="/login" element={<Login />} />
             </Route>
 

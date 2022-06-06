@@ -8,51 +8,48 @@ import {
     Input,
     Link,
     Stack,
-    useColorModeValue,
-    Box,
-    Text,
+    Image,
 } from '@chakra-ui/react';
 
 export default function Login() {
     return (
-        <Flex
-            minH={'100vh'}
-            align={'center'}
-            justify={'center'}
-            bg={useColorModeValue('gray.50', 'gray.800')}>
-            <Stack spacing={8} mx={'auto'} width={450} py={12} px={6}>
-                <Stack align={'center'}>
-                    <Heading fontSize={'4xl'}>Login</Heading>
-                </Stack>
-                <Box
-                    rounded={'lg'}
-                    bg={useColorModeValue('white', 'gray.700')}
-                    boxShadow={'lg'}
-                    p={8}>
-                    <Stack spacing={4}>
+        
+            <Stack  minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
+                <Flex p={8} flex={1} align={'center'} justify={'center'}>
+                    <Stack spacing={4} w={'full'} maxW={'md'}>
+                        <Heading fontSize={'2xl'}>Login</Heading>
                         <FormControl id="email">
-                            <FormLabel>Email address</FormLabel>
+                            <FormLabel>Email</FormLabel>
                             <Input type="email" />
                         </FormControl>
                         <FormControl id="password">
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>Senha</FormLabel>
                             <Input type="password" />
                         </FormControl>
-                        <Stack spacing={10}>
-            
-                            <Button
-                                mt={5}
-                                bg={'blue.400'}
-                                color={'white'}
-                                _hover={{
-                                    bg: 'blue.500',
-                                }}>
+                        <Stack spacing={6}>
+                            {/* <Stack
+                                direction={{ base: 'column', sm: 'row' }}
+                                align={'start'}
+                                justify={'space-between'}>
+                                <Checkbox>Lembre-me</Checkbox>
+                                <Link color={'#00a9b6'}>Esqueceu a senha?</Link>
+                            </Stack> */}
+                            <Button bg={'#00a9b6'} color="white" _hover={{bg: '#07727a'}}>
                                 Entrar
                             </Button>
                         </Stack>
                     </Stack>
-                </Box>
+                </Flex>
+                <Flex flex={1}>
+                    <Image
+                        alt={'Login Image'}
+                        objectFit={'cover'}
+                        src={
+                            'https://media.gazetadopovo.com.br/viver-bem/2018/10/dogvoto-768x612-4a097ac0.jpg'
+                        }
+                    />
+                </Flex>
             </Stack>
-        </Flex>
+       
     );
 }
