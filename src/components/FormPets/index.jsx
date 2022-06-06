@@ -12,7 +12,7 @@ export function FormPets({ button }) {
     return (
         <form onSubmit={handleSubmit(petRegister)}>
             <FormControl id="nome" marginBottom={3} isRequired>
-                <FormLabel>Nome</FormLabel>
+                <FormLabel marginBottom={0}>Nome</FormLabel>
                 <Input
                     placeholder="Nome do pet"
                     _placeholder={{ color: 'gray.500' }}
@@ -22,7 +22,7 @@ export function FormPets({ button }) {
 
             <HStack>
                 <FormControl id="raça" marginBottom={3} isRequired>
-                    <FormLabel>Raça</FormLabel>
+                    <FormLabel marginBottom={0}>Raça</FormLabel>
                     <Input
                         placeholder="Raça do pet"
                         _placeholder={{ color: 'gray.500' }}
@@ -30,10 +30,11 @@ export function FormPets({ button }) {
                         {...register("raca", { required: true })} />
                 </FormControl>
 
-                <FormControl id="categoria" marginBottom={3} isRequired>
-                    <FormLabel>Categoria</FormLabel>
+                <FormControl id="categoria" isRequired>
+                    <FormLabel marginBottom={0}>Categoria</FormLabel>
 
                     <Select
+                        marginBottom={3}
                         placeholder="Tipo de pet"
                         type="text"
                         {...register("categoria", { required: true })}>
@@ -45,7 +46,7 @@ export function FormPets({ button }) {
             </HStack>
 
             <FormControl id="cliente" marginBottom={3} isRequired>
-                <FormLabel>Nome papai ou mamãe</FormLabel>
+                <FormLabel marginBottom={0}>Nome papai ou mamãe</FormLabel>
                 <Select
                     placeholder="Selecione"
                     type="text"
