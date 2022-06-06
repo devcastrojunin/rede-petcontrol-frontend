@@ -20,8 +20,8 @@ export function FormPets({ button }) {
                     {...register("name", { required: true })} />
             </FormControl>
 
-            <HStack>
-                <FormControl id="raça" marginBottom={3} isRequired>
+            <HStack marginBottom={3}>
+                <FormControl id="raça" isRequired>
                     <FormLabel marginBottom={0}>Raça</FormLabel>
                     <Input
                         placeholder="Raça do pet"
@@ -34,7 +34,6 @@ export function FormPets({ button }) {
                     <FormLabel marginBottom={0}>Categoria</FormLabel>
 
                     <Select
-                        marginBottom={3}
                         placeholder="Tipo de pet"
                         type="text"
                         {...register("categoria", { required: true })}>
