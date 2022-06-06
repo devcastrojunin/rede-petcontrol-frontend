@@ -47,28 +47,6 @@ export function FormClientes({button}){
                                 {...register("address", { required: true })} />
                         </FormControl>
 
-                        <HStack>
-                            <FormControl id="pet" isRequired>
-                                <FormLabel>Pet</FormLabel>
-                                <Input
-                                    placeholder="Nome do pet"
-                                    type="text"
-                                    {...register("pets", { required: true })} />
-                            </FormControl>
-
-                            <FormControl id="categoria" isRequired>
-                                <FormLabel>Categoria</FormLabel>
-                                <Select
-                                    placeholder="Tipo de pet"
-                                    type="text"
-                                    {...register("categoria", { required: true })}>
-                                        <option value="dog">Cachorro</option>
-                                        <option value="cat">Gato</option>
-                                        <option value="bird">Ave</option>
-                                    </Select>
-                            </FormControl>
-                        </HStack>
-
                         <Button
                             mt={10}
                             bg={'blue.400'}
