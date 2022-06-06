@@ -18,14 +18,17 @@ export default function Login() {
                 <Flex p={8} flex={1} align={'center'} justify={'center'}>
                     <Stack spacing={4} w={'full'} maxW={'md'}>
                         <Heading fontSize={'2xl'}>Login</Heading>
+
                         <FormControl id="email">
                             <FormLabel>Email</FormLabel>
-                            <Input type="email" />
+                            <Input type="email" borderColor='#A0AEC0'/>
                         </FormControl>
+
                         <FormControl id="password">
                             <FormLabel>Senha</FormLabel>
-                            <Input type="password" />
+                            <Input type="password" borderColor='#A0AEC0'/>
                         </FormControl>
+
                         <Stack spacing={6}>
                             {/* <Stack
                                 direction={{ base: 'column', sm: 'row' }}
