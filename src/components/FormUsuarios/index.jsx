@@ -22,7 +22,7 @@ export function FormUsuarios({ button }) {
 
             <HStack marginBottom={3}>
                 <FormControl id="userName" isRequired>
-                    <FormLabel marginBottom={0}>userName</FormLabel>
+                    <FormLabel marginBottom={0}>Usuário</FormLabel>
                     <Input
                         placeholder="userName"
                         _placeholder={{ color: 'gray.500' }}
@@ -37,9 +37,9 @@ export function FormUsuarios({ button }) {
                         placeholder="selecione"
                         type="text"
                         {...register("perfil", { required: true })}>
-                        <option value="1">SUPER_ADMIN</option>
-                        <option value="2">ADMIN</option>
-                        <option value="3">EMPLOYEES</option>
+                        <option value="1">Super_admin</option>
+                        <option value="2">Admin</option>
+                        <option value="3">Employees</option>
                     </Select>
                 </FormControl>
             </HStack>
