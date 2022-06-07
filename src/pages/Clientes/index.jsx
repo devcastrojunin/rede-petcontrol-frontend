@@ -20,8 +20,7 @@ export default function Clientes() {
 
     const navigate = useNavigate();
   
-    let tableHead = ["Nome", "Email", "Endereço", "Pets" ];
-
+    let tableHead = ["Nome", "Email", "Endereço", "Pets", "Ações" ];
   
     const goToAdd = () => navigate('/clientes/cadastrar')
     return (
@@ -29,7 +28,7 @@ export default function Clientes() {
             <Box w="75%" h="100%">
                 <Box fontWeight="bold" fontSize="30px" mb={61} mt={10} pl={4}>Todos os Clientes</Box>
                 
-                <GlobalTable tableHead={tableHead} goToAdd={goToAdd}/>
+                <GlobalTable tableHead={tableHead} goToAdd={goToAdd} goToEdit="/clientes/editar/6"/>
             </Box>
         </Center>
     )
