@@ -9,50 +9,83 @@ import {
     // Link,
     Stack,
     Image,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react"
+import axios from "axios"
+import { setAuthToken } from "../../auth/AuthGuard"
 
 export default function Login() {
+    const formObj = {
+        username: "jose.silva",
+        password: "admin@123",
+    }
+
+    const handlerLogin = () => {
+        axios
+            .post(
+                "https://rocky-savannah-85609.herokuapp.com/api/v1/login",
+                formObj
+            )
+            .then(res => {
+                console.log(res.data)
+                //get token from response
+                const token = res.data.token
+
+                //set JWT token to local
+                localStorage.setItem("token", token)
+
+                //set token to axios common header
+                setAuthToken(token)
+
+                //redirect user to home page
+                window.location.href = "/home"
+            })
+            .catch(e => console.log(e))
+    }
+
     return (
-        
-            <Stack  minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
-                <Flex p={8} flex={1} align={'center'} justify={'center'}>
-                    <Stack spacing={4} w={'full'} maxW={'md'}>
-                        <Heading fontSize={'2xl'}>Login</Heading>
+        <Stack minH={"100vh"} direction={{base: "column", md: "row"}}>
+            <Flex p={8} flex={1} align={"center"} justify={"center"}>
+                <Stack spacing={4} w={"full"} maxW={"md"}>
+                    <Heading fontSize={"2xl"}>Login</Heading>
 
-                        <FormControl id="email">
-                            <FormLabel>Email</FormLabel>
-                            <Input type="email" borderColor='#A0AEC0'/>
-                        </FormControl>
+                    <FormControl id="email">
+                        <FormLabel>Email</FormLabel>
+                        <Input type="email" borderColor="#A0AEC0" />
+                    </FormControl>
 
-                        <FormControl id="password">
-                            <FormLabel>Senha</FormLabel>
-                            <Input type="password" borderColor='#A0AEC0'/>
-                        </FormControl>
+                    <FormControl id="password">
+                        <FormLabel>Senha</FormLabel>
+                        <Input type="password" borderColor="#A0AEC0" />
+                    </FormControl>
 
-                        <Stack spacing={6}>
-                            {/* <Stack
+                    <Stack spacing={6}>
+                        {/* <Stack
                                 direction={{ base: 'column', sm: 'row' }}
                                 align={'start'}
                                 justify={'space-between'}>
                                 <Checkbox>Lembre-me</Checkbox>
                                 <Link color={'#00a9b6'}>Esqueceu a senha?</Link>
                             </Stack> */}
-                            <Button bg={'#00a9b6'} color="white" _hover={{bg: '#07727a'}}>
-                                Entrar
-                            </Button>
-                        </Stack>
+                        <Button
+                            bg={"#00a9b6"}
+                            color="white"
+                            _hover={{bg: "#07727a"}}
+                            onClick={handlerLogin}
+                        >
+                            Entrar
+                        </Button>
                     </Stack>
-                </Flex>
-                <Flex flex={1}>
-                    <Image
-                        alt={'Login Image'}
-                        objectFit={'cover'}
-                        src={
-                            'https://media.gazetadopovo.com.br/viver-bem/2018/10/dogvoto-768x612-4a097ac0.jpg'
-                        }
-                    />
-                </Flex>
-            </Stack>
-       
-    );
+                </Stack>
+            </Flex>
+            <Flex flex={1}>
+                <Image
+                    alt={"Login Image"}
+                    objectFit={"cover"}
+                    src={
+                        "https://media.gazetadopovo.com.br/viver-bem/2018/10/dogvoto-768x612-4a097ac0.jpg"
+                    }
+                />
+            </Flex>
+        </Stack>
+    )
 }
