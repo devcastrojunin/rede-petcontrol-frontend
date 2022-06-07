@@ -6,7 +6,7 @@ export default function Usuarios() {
 
     const navigate = useNavigate();
 
-    let tableHead = ["Nome", "Usuário", "Perfil", "Data de cadastro" ];
+    let tableHead = ["Nome", "Usuário", "Perfil", "Data de cadastro", "Ações" ];
 
     const goToAdd = () => navigate('/usuarios/cadastrar')
     
@@ -16,7 +16,7 @@ export default function Usuarios() {
             <Box w="75%" h="100%">
                 <Box fontWeight="bold" fontSize="30px" mb={61} mt={10} pl={4}>Todos os Usuários</Box>
 
-                <GlobalTable tableHead={tableHead} goToAdd={goToAdd}/>
+                <GlobalTable tableHead={tableHead} goToAdd={goToAdd} goToEdit="/usuarios/editar/6"/>
             </Box>
         </Center>
         
