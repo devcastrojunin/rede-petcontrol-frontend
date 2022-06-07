@@ -48,12 +48,11 @@ export function FormClientes({button}){
                         </FormControl>
 
                         <Button
-                            mt={10}
-                            bg={'blue.400'}
+                            mt={8}
+                            bg={'#00a9b6'}
                             color={'white'}
-                            _hover={{
-                                bg: 'blue.500'}}
-                            width="100%"                    
+                            _hover={{bg: '#07727a'}}
+                            width="100%"
                             type="submit">
                             {button}
                         </Button>

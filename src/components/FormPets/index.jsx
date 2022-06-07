@@ -56,11 +56,9 @@ export function FormPets({ button }) {
 
             <Button
                 mt={8}
-                bg={'blue.400'}
+                bg={'#00a9b6'}
                 color={'white'}
-                _hover={{
-                    bg: 'blue.500'
-                }}
+                _hover={{bg: '#07727a'}}
                 width="100%"
                 type="submit">
                 {button}
