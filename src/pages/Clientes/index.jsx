@@ -1,4 +1,4 @@
-import { Box, Center} from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Spacer} from "@chakra-ui/react";
 import GlobalTable from "../../components/GlobalTable";
 
 export default function Clientes() {
@@ -11,6 +11,10 @@ export default function Clientes() {
             <Box w="75%" h="100%">
                 <Box fontWeight="bold" fontSize="30px" mb={61} mt={10} pl={4}>Todos os Clientes</Box>
 
+                <Flex>
+                    <Spacer/>
+                    <Button colorScheme='teal'>Sign Up </Button>
+                </Flex>
                 <GlobalTable tableHead={tableHead}/>
             </Box>
         </Center>
