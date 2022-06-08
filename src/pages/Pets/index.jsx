@@ -10,8 +10,8 @@ import api from "../../services/api";
 export default function Pets() {
 
     const navigate = useNavigate();
-    let tableHead = ["Nome", "Raça", "Dono", "Categoria", "Ações" ];
-    const [pets, setPets] = useState();
+    let tableHead = ["Nome", "Raça", "Dono", "Categoria", "Ações"];
+    const [pets, setPets] = useState([]);
 
     const goToAdd = () => navigate('/pets/cadastrar')
 
@@ -25,7 +25,7 @@ export default function Pets() {
         //         console.log(`vish algo deu errado no pets ${err}`)
         //     })
     }, [])
-    
+
     return (
         <Center>
             <Box w="75%" h="100%">
@@ -53,24 +53,22 @@ export default function Pets() {
                     </Thead>
 
                     <Tbody>
-                        <Tr>
-                            {pets.map((listaPets, index) => (
-                                <>
-                                    <Td key={index}>{listaPets.name}</Td>
-                                    <Td>{listaPets.email}</Td>
-                                    <Td>Endereço</Td>
-                                    <Td>Lolozinho</Td>
-                                    <Td >
-                                        <HStack>
-                                            <Link to={"/pets/editar/6"}><GrEdit /></Link>
-                                            <RiDeleteBin6Line />
-                                        </HStack>
-                                    </Td>
-                                </>
-                            ))}
-                        </Tr>
-                    </Tbody>
 
+                        {pets.map((pet) => (
+                            <Tr>
+                                <Td key={pet.id}>{pet.name}</Td>
+                                <Td>{pet.email}</Td>
+                                <Td>Endereço</Td>
+                                <Td>Lolozinho</Td>
+                                <Td >
+                                    <HStack>
+                                        <Link to={"/pets/editar/6"}><GrEdit /></Link>
+                                        <RiDeleteBin6Line />
+                                    </HStack>
+                                </Td>
+                            </Tr>
+                        ))}
+                    </Tbody>
                 </Table>
             </Box>
         </Center>

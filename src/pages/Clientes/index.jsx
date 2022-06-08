@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react"
-import { Box, Button, Center, Flex, HStack, Spacer, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, HStack, Spacer, Spinner, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
 import { GrEdit } from "react-icons/gr";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -11,22 +11,24 @@ import api from "../../services/api";
 export default function Clientes() {
 
     let tableHead = ["Nome", "Email", "Endereço", "Pets", "Ações"];
-    const [clientes, setClientes] = useState();
+    const [clientes, setClientes] = useState([]);
     const navigate = useNavigate();
-    
+    const [clientesLoad, setClientesLoad] = useState(true);
+
     const goToAdd = () => navigate('/clientes/cadastrar')
 
     useEffect(() => {
         api.get('/clientes')
             .then((res) => {
-                setClientes(res);
+                setClientes(res.data);
+                setClientesLoad(false);
                 console.log(res)
             })
             .catch((err) => {
                 console.log(`vish algo deu errado no cliente ${err}`)
             })
     }, [])
-    
+
     return (
         <Center>
             <Box w="75%" h="100%">
@@ -54,24 +56,28 @@ export default function Clientes() {
                     </Thead>
 
                     <Tbody>
-                        <Tr>
-                            {clientes?.map((listaGlobalTable, index) => (
-                                <>
-                                    <Td key={index}>{listaGlobalTable.name}</Td>
-                                    <Td>{listaGlobalTable.email}</Td>
-                                    <Td>Endereço</Td>
-                                    <Td>Lolozinho</Td>
-                                    <Td >
-                                        <HStack>
-                                            <Link to={"/clientes/editar/6"}><GrEdit /></Link>
-                                            <RiDeleteBin6Line />
-                                        </HStack>
-                                    </Td>
-                                </>
-                            ))}
-                        </Tr>
+                        {clientesLoad && <Tr><Td><Spinner /></Td></Tr>}
+                        {!clientesLoad &&
+                            <>
+                                {clientes.length > 0 ? (
+                                    clientes.map((cliente) => (
+                                        <Tr>
+                                            <Td key={cliente.id}>{cliente.name}</Td>
+                                            <Td>{cliente.email}</Td>
+                                            <Td>Endereço</Td>
+                                            <Td>Lolozinho</Td>
+                                            <Td >
+                                                <HStack>
+                                                    <Link to={"/clientes/editar/6"}><GrEdit /></Link>
+                                                    <RiDeleteBin6Line />
+                                                </HStack>
+                                            </Td>
+                                        </Tr>
+                                    ))
+                                ) : (<Tr><Td>Nenhum cliente cadastrado...</Td></Tr>)}
+                            </>
+                        }
                     </Tbody>
-
                 </Table>
             </Box>
         </Center>

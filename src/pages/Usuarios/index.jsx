@@ -10,19 +10,19 @@ export default function Usuarios() {
 
     const navigate = useNavigate();
     let tableHead = ["Nome", "Usuário", "Perfil", "Data de cadastro", "Ações" ];
-    const [usuarios, setUsuarios] = useState();
+    const [usuarios, setUsuarios] = useState([]);
     
     const goToAdd = () => navigate('/usuarios/cadastrar')
     
     useEffect(() => {
-        // api.get('/usuarios')
-        //     .then((res) => {
-        //         setUsuarios(res);
-        //         console.log(res)
-        //     })
-        //     .catch((err) => {
-        //         console.log(`vish algo deu errado no usuarios ${err}`)
-        //     })
+        api.get('/usuarios')
+            .then((res) => {
+                setUsuarios(res);
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(`vish algo deu errado no usuarios ${err}`)
+            })
     }, [])
 
     return (
@@ -54,11 +54,10 @@ export default function Usuarios() {
                     </Thead>
 
                     <Tbody>
-                        <Tr>
-                            {usuarios.map((listaUsuarios, index) => (
-                                <>
-                                    <Td key={index}>{listaUsuarios.name}</Td>
-                                    <Td>{listaUsuarios.email}</Td>
+                            {usuarios.map((usuario) => (
+                                <Tr>
+                                    <Td key={usuario.id}>{usuario.name}</Td>
+                                    <Td>{usuario.email}</Td>
                                     <Td>Endereço</Td>
                                     <Td>Lolozinho</Td>
                                     <Td >
@@ -67,9 +66,8 @@ export default function Usuarios() {
                                             <RiDeleteBin6Line />
                                         </HStack>
                                     </Td>
-                                </>
-                            ))}
-                        </Tr>
+                                </Tr>
+                            ))}                       
                     </Tbody>
                 </Table>
             </Box>
