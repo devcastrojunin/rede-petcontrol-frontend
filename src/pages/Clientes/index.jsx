@@ -56,7 +56,7 @@ export default function Clientes() {
                     </Thead>
 
                     <Tbody>
-                        {clientesLoad && <Tr><Td><Spinner /></Td></Tr>}
+                        {clientesLoad && <Tr><Td colSpan={5} textAlign="center"><Spinner /></Td></Tr>}
                         {!clientesLoad &&
                             <>
                                 {clientes.length > 0 ? (
