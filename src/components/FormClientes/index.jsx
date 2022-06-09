@@ -97,6 +97,7 @@ export function FormClientes({ button }) {
                     bg={'blue.400'}
                     color={'white'}
                     _hover={{ bg: 'blue.600' }}
+                    width={70}
                     type="button"
                     onClick={getCep}
                     disabled={loading}>
