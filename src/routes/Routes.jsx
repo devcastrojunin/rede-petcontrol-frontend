@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Redirect, Navigate } from "react-router-dom"
 import {
     Home,
     Consultas,
@@ -17,16 +17,18 @@ import {
 } from "../pages";
 import TemplateDefault from "../templates/TemplateDefault";
 import TemplateAuth from "../templates/TemplateAuth";
+import { hasJWT } from "../auth/AuthGuard";
 
 export default function Routers() {
     return (
         <Routes>
-
+            <Route path="/" element={<Navigate replace to="/login" />} />
+            
             <Route path="/" element={<TemplateAuth/>}>
                 <Route path="/login" element={<Login />} />
             </Route>
 
-            <Route path="/" element={<TemplateDefault />}>
+            <Route path="/" element={!hasJWT() ? <Navigate replace to="/login" /> : <TemplateDefault />}>
                 <Route path="home" element={<Home />} />
 
                 <Route path="consultas" element={<Consultas />} />

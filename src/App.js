@@ -1,12 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
-import Routers from "./routes/Routes";
+import {BrowserRouter} from "react-router-dom"
+import {setAuthToken} from "./auth/AuthGuard"
+import Routers from "./routes/Routes"
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routers/>
-    </BrowserRouter>
-  );
-}
+    const token = localStorage.getItem("token")
+    if (token) {
+        setAuthToken(token)
+    }
 
- 
+    return (
+        <BrowserRouter>
+            <Routers />
+        </BrowserRouter>
+    )
+}

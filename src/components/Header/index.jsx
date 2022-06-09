@@ -1,12 +1,19 @@
 import React from "react";
-import { Box, Stack, Heading, Flex, useDisclosure } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Stack, Heading, Flex, useDisclosure, Button } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi"
 
 //import { HamburgerIcon } from "@chakra-ui/icons";
 
 const Header = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleToggle = () => (isOpen ? onClose() : onOpen());
+  const navigate = useNavigate();
+  
+  const logout = () => {
+    localStorage.clear("token")
+    navigate("/login")
+  }
 
   return (
     <Flex
@@ -52,6 +59,14 @@ const Header = (props) => {
         display={{ base: isOpen ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
+        <Button 
+        rightIcon={<FiLogOut />} 
+        color='teal.600' 
+        bg='gray.50'
+        _hover={{ bg: "gray.400", color: "gray.50"}}
+        onClick={logout}>
+          Sair
+        </Button>
       </Box>
     </Flex>
   );
