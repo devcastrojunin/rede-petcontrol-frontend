@@ -61,8 +61,8 @@ export default function Clientes() {
                             <>
                                 {clientes.length > 0 ? (
                                     clientes.map((cliente) => (
-                                        <Tr>
-                                            <Td key={cliente.id}>{cliente.name}</Td>
+                                        <Tr key={cliente.id}>
+                                            <Td >{cliente.name}</Td>
                                             <Td>{cliente.email}</Td>
                                             <Td>Endereço</Td>
                                             <Td>Lolozinho</Td>
