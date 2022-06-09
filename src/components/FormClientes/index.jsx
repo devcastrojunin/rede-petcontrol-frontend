@@ -1,4 +1,4 @@
-import { Button, FormControl, FormErrorMessage, FormLabel, HStack, Input, Text, Link } from "@chakra-ui/react";
+import { Button, FormControl, FormErrorMessage, FormLabel, HStack, Input, Text, Link, Spinner } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -7,8 +7,10 @@ import { useState } from "react";
 export function FormClientes({ button }) {
 
     const { register, handleSubmit, getValues, setValue, formState: { errors }} = useForm();
+    const [loading, setLoading] = useState(false);
 
     const getCep = () => {
+        setLoading(true);
         const cep = getValues("cep")
         axios.get(`https://viacep.com.br/ws/${cep}/json/`)
             .then((res) => {
@@ -16,9 +18,10 @@ export function FormClientes({ button }) {
                 setValue('bairro', res.data.bairro)
                 setValue('cidade', res.data.localidade)
                 setValue('estado', res.data.uf)
+                setLoading(false);
             })
             .catch(() => {
-
+                setLoading(true);
             })
     }
 
@@ -95,13 +98,14 @@ export function FormClientes({ button }) {
                     color={'white'}
                     _hover={{ bg: 'blue.600' }}
                     type="button"
-                    onClick={getCep}>
-                    Buscar
+                    onClick={getCep}
+                    disabled={loading}>
+                    {loading ? <Spinner/> : 'Buscar'}
                 </Button>
             </HStack>
 
             <Text fontSize={12}>
-                Não sabe seu cep? <Link href= 'https://buscacepinter.correios.com.br/app/endereco/index.php' isExternal>Click aqui.</Link></Text>
+                Não sabe seu cep? <Link href= 'https://buscacepinter.correios.com.br/app/endereco/index.php' isExternal textDecoration="underline">click aqui.</Link></Text>
 
             <HStack mt={11}>
                 <FormControl id="rua" width={600}>
