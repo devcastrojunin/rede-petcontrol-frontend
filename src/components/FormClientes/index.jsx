@@ -1,10 +1,26 @@
 import { Button, FormControl, FormLabel, HStack, Input, Text } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useState } from "react";
 
 export function FormClientes({ button }) {
 
-    const { register, handleSubmit, /*formState: { errors }*/ } = useForm();
+    const { register, handleSubmit, getValues, setValue,/*formState: { errors }*/ } = useForm();
+
+    const getCep = () => {
+        const cep = getValues("cep")
+        axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((res)=>{
+            setValue('rua',res.data.logradouro)
+            setValue('bairro',res.data.bairro)
+            setValue('cidade',res.data.localidade)
+            setValue('estado',res.data.uf)
+        })
+        .catch(()=>{
+
+        })
+    }
 
     const clientRegister = (value) => {
         console.log(value)
@@ -65,7 +81,9 @@ export function FormClientes({ button }) {
                     mt={8}
                     bg={'blue.400'}
                     color={'white'}
-                    _hover={{ bg: 'blue.600' }}>
+                    _hover={{ bg: 'blue.600' }}
+                    type="button"
+                    onClick={getCep}>
                     Buscar
                 </Button>
             </HStack>
@@ -102,6 +120,7 @@ export function FormClientes({ button }) {
                     <Input
                         placeholder="Bairro do Limão"
                         type="text"
+                        readOnly
                         {...register("bairro")} />
                 </FormControl>
             </HStack>
@@ -112,6 +131,7 @@ export function FormClientes({ button }) {
                     <Input
                         placeholder="São Paulo"
                         type="text"
+                        readOnly
                         {...register("cidade")} />
                 </FormControl>
 
@@ -120,6 +140,7 @@ export function FormClientes({ button }) {
                     <Input
                         placeholder="São Paulo"
                         type="text"
+                        readOnly
                         {...register("estado")} />
                 </FormControl>
             </HStack>
